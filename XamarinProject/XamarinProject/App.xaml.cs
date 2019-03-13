@@ -20,7 +20,10 @@ namespace XamarinProject
         {
             InitializeComponent();
             DB_PATH = DB_Path;
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new MainPage())
+            {
+                BarBackgroundColor = Color.FromHex("#161a1f")
+            };
         }
 
         protected override void OnStart()

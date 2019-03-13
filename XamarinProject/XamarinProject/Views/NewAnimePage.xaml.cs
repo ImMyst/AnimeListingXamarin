@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinProject.Models;
+using XamarinProject.ViewModels;
 
 namespace XamarinProject
 {
@@ -23,7 +23,8 @@ namespace XamarinProject
             Anime anime = new Anime()
             {
                 Name = nameEntry.Text,
-                Studio = studioEntry.Text
+                Studio = studioEntry.Text,
+                Summary = summaryEditor.Text
             };
 
             using (SQLite.SQLiteConnection connection = new SQLite.SQLiteConnection(App.DB_PATH))
@@ -36,7 +37,7 @@ namespace XamarinProject
                     DisplayAlert("Bien joué !", "L'anime a bien été enregistré", "Continuer");
                 }
 
-                else
+                else 
 
                 {
                     DisplayAlert("Dommage", "L'anime n'a pas pu être enregistré", "Continuer");

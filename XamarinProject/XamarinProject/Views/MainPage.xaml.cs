@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using XamarinProject.Models;
+using XamarinProject.ViewModels;
+using XamarinProject.Views;
 
 namespace XamarinProject
 {
@@ -13,6 +16,10 @@ namespace XamarinProject
         public MainPage()
         {
             InitializeComponent();
+
+            BindingContext = new MainPageViewModel();
+
+            animesListView.ItemTapped += animesListView_ItemTapped;
         }
 
         protected override void OnAppearing()
@@ -30,6 +37,20 @@ namespace XamarinProject
         private void navigationActivated(object sender, EventArgs e)
         {
             Navigation.PushAsync(new NewAnimePage());
+        }
+
+        private void animesListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            try
+            {
+                ((MainPageViewModel)BindingContext).DetailAnimePage = null;
+                Anime selectedSample = (Anime)e.Item;
+                Navigation.PushAsync(new DetailAnimePage(selectedSample), true);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Something is thrown ! " + ex.ToString());
+            }
         }
     }
 }

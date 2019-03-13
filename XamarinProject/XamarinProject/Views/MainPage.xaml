@@ -2,20 +2,25 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:XamarinProject"
-             x:Class="XamarinProject.MainPage">
+             x:Class="XamarinProject.MainPage"
+             BackgroundImage="background.jpg"
+             Title="{Binding Titre}">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Ajouter un anime"
                      Activated="navigationActivated"/>
     </ContentPage.ToolbarItems>
-
-    <ListView x:Name="animesListView">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Text="{Binding Name}"
-                          Detail="{Binding Studio}"/>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
-
+    <ScrollView>
+        <ListView x:Name="animesListView"
+                  ItemsSource="{Binding Anime}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}"
+                              Detail="{Binding Studio}"
+                              TextColor="#ff4a32"
+                              DetailColor="#85ffffff"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
 </ContentPage>
