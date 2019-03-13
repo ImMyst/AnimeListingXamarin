@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinProject.NewAnimePage">
+    <StackLayout Margin="20, 10, 20, 0">
+        <Entry Placeholder="Nom de l'anime"/>
+        <Entry Placeholder="Studio d'animation"/>
+        <Button Text="Enregistrer"
+                Clicked="saveAnimeEntry"/>
+    </StackLayout>
+</ContentPage>
