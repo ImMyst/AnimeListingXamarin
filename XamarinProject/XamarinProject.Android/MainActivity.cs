@@ -20,7 +20,7 @@ namespace XamarinProject.Droid
 
             base.OnCreate(savedInstanceState);
 
-            string fileName = "animes_db.sqlite";
+            string fileName = "anime_db.sqlite";
             string fileLocation = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string fullPath = Path.Combine(fileLocation, fileName);
 

@@ -23,7 +23,7 @@ namespace XamarinProject.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            string fileName = "animes_db.sqlite";
+            string fileName = "anime_db.sqlite";
             string fileLocation = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "..", "Library");
             string fullPath = Path.Combine(fileLocation, fileName);
 
